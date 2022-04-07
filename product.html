@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>item page </title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            width: 100%;
+            /* justify-content: space-around; */
+            /* padding: px; */
+        
+            
+            /* display: grid; */
+            /* grid-auto-rows: auto; */
+            /* margin: auto; */
+        }
+    </style>
+</head>
+<body>
+    <h1>all product</h1>
+
+    <div id="container" ></div>
+
+    
+</body>
+</html>
+
+<script>
+    let arr1 = JSON.parse(localStorage.getItem('adminData')) || [];
+    console.log(arr1)
+
+
+    arr1.map(function(elem){
+        console.log(elem.ima)
+
+    var box = document.createElement("div");
+
+    var img = document.createElement("img");
+    img.src = elem.ima;
+
+    var product = document.createElement("p");
+    name.textContent = elem.pro;
+
+    var price = document.createElement("p");
+    price.innerText = elem.pri;
+
+    var brandd=document.createElement('p');
+    brandd.innerText=elem.cat
+
+    var btn = document.createElement("button");
+    btn.innerText = "Add to Cart";
+
+    box.append(img,brandd,product, price, btn,);
+
+    document.querySelector("#container").append(box);
+
+
+    });
+</script>
